@@ -1,6 +1,6 @@
 <template>
   <div class="about pb-5 pt-5">
-    <div class="conatiner">
+    <div class="conatiner pb-3 pt-5">
       <div
         class="card d-flex justify-content-center align-items-center flex-column border border-0"
       >

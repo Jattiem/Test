@@ -28,7 +28,7 @@
         </div>
       </div>
         <div v-else>
-            <h1>Your Dad</h1>
+            <h1>Loading</h1>
         </div>
     </div>
   </div>
