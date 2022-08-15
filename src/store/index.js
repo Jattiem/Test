@@ -6,7 +6,8 @@ export default createStore({
     products: null,
     product: null,
     user: null,
-    token: null
+    token: null,
+    cart: null
   },
   getters: {
   },
@@ -22,6 +23,9 @@ export default createStore({
     },
     setToken(state, token){
       state.token = token
+    },
+    setUserCart(state, cart){
+      state.cart = cart
     }
   },
   actions: {
@@ -98,6 +102,11 @@ export default createStore({
 
       });
 
+    },
+    async getUserCart(context, id){
+      let fetched = await fetch('https://pointofsalecmapi.herokuapp.com/user/' + id + '/cart');
+      let res = await fetched.json();
+      context.commit('setUserCart', res.cart)
     }
   },
   modules: {

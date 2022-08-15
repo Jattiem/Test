@@ -2,19 +2,35 @@
   <div class="cart">
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
-    <h1 class="offcanvas-title" id="offcanvasScrollingLabel">Cart <i class="bi bi-cart-fill"></i></h1>
+    <h1 class="offcanvas-title" id="offcanvasScrollingLabel">Cart<i class="bi bi-cart-fill"></i></h1>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <p>'s Cart </p>
+    <div v-if="cart">
+      <ProductCards v-for="product in carts" :key="product" :product="product"/>
+    </div>
+    <div v-else>
+      <p>Raise</p>
+    </div>
   </div>
 </div>
   </div>
 </template>
 
 <script>
-export default {
+import ProductCards from '../components/ProductCards.vue'
 
+export default {
+  components:{ProductCards},
+    computed:{
+      user(){
+        return this.$store.state.user
+      },
+      cart(){
+        return this.$store.state.cart
+      },
+    }
 }
 </script>
 
