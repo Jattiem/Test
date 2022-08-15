@@ -42,13 +42,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  
+};
 </script>
 
 <style scoped>
 .login {
-  background: 
-    url("https://i.postimg.cc/zBcRB35M/20355544.jpg");
+  background: url("https://i.postimg.cc/zBcRB35M/20355544.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -59,8 +60,8 @@ export default {};
   background-color: rgb(242, 242, 242);
 }
 
-h3{
-    color: rgb(0, 162, 255);
+h3 {
+  color: rgb(0, 162, 255);
 }
 
 /* .container {
@@ -75,14 +76,13 @@ h3{
   padding: 50px;
 } */
 
-button{
-    background-color:  rgb(0, 162, 255);
-    color: white;
+button {
+  background-color: rgb(0, 162, 255);
+  color: white;
 }
 
-button:hover{
-    background-color:  rgb(0, 162, 255);
-    color: white;
+button:hover {
+  background-color: rgb(0, 162, 255);
+  color: white;
 }
-
 </style>

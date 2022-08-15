@@ -1,7 +1,7 @@
 <template>
 <footer>
     <div class="footer">
-    <p class="pb-4 ">Copyright &copy; 2022 by Cassidy & Muddathir</p>
+    <p class="d-flex justify-content-center align-items-center flex-column">Copyright &copy; 2022 by Cassidy & Muddathir</p>
     <h2>UNLIMITED CMD</h2>
   </div>
 </footer>
@@ -16,8 +16,12 @@ export default {
 <style scoped>
 
 footer{
-    height: 30vh;
-    
+  color: black;
+  background-color:  #f0f0f0;
+}
+
+h2{
+  margin-bottom: 0 !important;
 }
 
 </style>

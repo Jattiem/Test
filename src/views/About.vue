@@ -40,9 +40,7 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <span id="hoverInfo">
-                          <div
-                            class="row gap-2"
-                          >
+                          <div class="row gap-2">
                             <div class="col-sm-2">
                               <h3>
                                 <a
@@ -105,7 +103,10 @@
                                 <a
                                   href="https://www.linkedin.com/in/muddathir-dawood-382557237/"
                                   target="_blank"
-                                  ><i class="bi-brands bi-linkedin" id="md-icon"></i
+                                  ><i
+                                    class="bi-brands bi-linkedin"
+                                    id="md-icon"
+                                  ></i
                                 ></a>
                               </h3>
                             </div>
@@ -114,16 +115,20 @@
                                 <a
                                   href="https://www.facebook.com/muddathir.dawood"
                                   target="_blank"
-                                  ><i class="bi-brands bi-facebook" id="md-icon"></i
+                                  ><i
+                                    class="bi-brands bi-facebook"
+                                    id="md-icon"
+                                  ></i
                                 ></a>
                               </h3>
                             </div>
                             <div class="col-sm-2">
                               <h3>
-                                <a
-                                  href=""
-                                  target="_blank"
-                                  ><i class="bi-solid bi-person-fill" id="md-icon"></i
+                                <a href="" target="_blank"
+                                  ><i
+                                    class="bi-solid bi-person-fill"
+                                    id="md-icon"
+                                  ></i
                                 ></a>
                               </h3>
                             </div>
@@ -133,7 +138,10 @@
                                   href="
 https://github.com/MuddathirDawood?tab=repositories"
                                   target="_blank"
-                                  ><i class="bi-brands bi-github" id="md-icon"></i
+                                  ><i
+                                    class="bi-brands bi-github"
+                                    id="md-icon"
+                                  ></i
                                 ></a>
                               </h3>
                             </div>
@@ -266,16 +274,16 @@ i {
   color: black !important;
 }
 
-.img-fluid{
+.img-fluid {
   height: 100%;
-    width: 100%;
-    object-fit: cover;
-    overflow-x: hidden;
-    aspect-ratio: 1;
+  width: 100%;
+  object-fit: cover;
+  overflow-x: hidden;
+  aspect-ratio: 1;
   transition: all 1s ease;
 }
 
-#md-icon{
+#md-icon {
   color: white !important;
 }
 </style>

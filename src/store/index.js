@@ -24,7 +24,6 @@ export default createStore({
       let fetched = await fetch('https://pointofsalecmapi.herokuapp.com/products');
       let res = await fetched.json();
       context.commit('setProducts',res.products)
-
   }
   },
   modules: {

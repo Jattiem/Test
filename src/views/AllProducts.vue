@@ -3,16 +3,16 @@
     <div class="container">
       <h2 class="display-2">Products</h2>
       <div class="row" v-if="products">
-        <div class="col-md-4 pb-5"  v-for="product in products" :key="product">
+        <div class="col-md-4 pb-5" v-for="product in products" :key="product">
           <div class="product-card">
             <div class="badge ms-2">Sale</div>
             <div class="product-tumb">
-              <img :src="product.image" alt="product"/>
+              <img :src="product.image" alt="product" />
             </div>
             <div class="product-details">
               <span class="product-catagory">Limited Edition</span>
-              <h4> {{product.title}} </h4>
-              <div class="product-bottom-details d-flex justify-content-center">
+              <h4>{{ product.title }}</h4>
+              <div class="product-bottom-details ">
                 <div class="row">
                   <div class="col-12">
                     <div class="product-btns">
@@ -27,9 +27,9 @@
           </div>
         </div>
       </div>
-        <div v-else>
-            <h1>Loading</h1>
-        </div>
+      <div v-else>
+        <h1>Loading</h1>
+      </div>
     </div>
   </div>
 </template>
@@ -75,8 +75,8 @@ h2:hover {
     color: rgb(0, 162, 255);
 } */
 
-.container{
-    gap: 25px;
+.container {
+  gap: 25px;
 }
 
 .product-card {
@@ -170,32 +170,32 @@ h2:hover {
   }
 }
 
-@media (min-width: 768px){
-    .col-md-4{
-        width: 50% ;
-        flex: 0 0 auto;
-        display: flex;
-        justify-content: center;
-    }
-} 
+@media (min-width: 768px) {
+  .col-md-4 {
+    width: 50%;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+}
 
-@media (min-width: 600px){
-    .col-md-4{
-        width: 50% ;
-        flex: 0 0 auto;
-        display: flex;
-        justify-content: center;
-    }
-} 
+@media (min-width: 600px) {
+  .col-md-4 {
+    width: 50%;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+}
 
-@media (max-width: 699px){
-    .col-md-4{
-        width: 100% ;
-        /* flex: 0 0 auto; */
-        display: flex;
-        justify-content: center;
-    }
-} 
+@media (max-width: 699px) {
+  .col-md-4 {
+    width: 100%;
+    /* flex: 0 0 auto; */
+    display: flex;
+    justify-content: center;
+  }
+}
 
 .product-price {
   font-size: 18px;
@@ -212,7 +212,8 @@ h2:hover {
 }
 
 .product-btn {
-  text-align: right;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .product-btn a {
@@ -221,6 +222,8 @@ h2:hover {
   color: rgb(242, 242, 242);
   transition: 0.3s;
   font-size: 17px;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .product-btn a:hover {
@@ -241,6 +244,8 @@ h2:hover {
   width: 180px;
   text-align: center;
   margin-right: 5px;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .product-btn:hover {
@@ -266,6 +271,9 @@ h2:hover {
   position: absolute;
   inset: 0;
   display: block;
+  display: flex !important;
+  justify-content: center !important;
+  float: left;
 }
 
 .product-btn i::before {
