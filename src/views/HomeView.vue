@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home pt-4">
     <h2 class="d-flex justify-content-center pb-4 pt-4">Unlimited CMD</h2>
     <div class="wrapper">
         <a href="#sneakersContainer">

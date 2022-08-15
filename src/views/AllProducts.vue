@@ -31,7 +31,6 @@
             <div class="loader">
               <div class="loaderBar"></div>
             </div>
-        </div>
     </div>
   </div>
 </template>

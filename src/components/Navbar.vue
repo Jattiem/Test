@@ -8,9 +8,9 @@
       aria-controls="staticBackdrop"
     >MENU
     </button>
-
     <div
       class="offcanvas offcanvas-start"
+      data-bs-backdrop="static"
       tabindex="-1"
       id="staticBackdrop"
       aria-labelledby="staticBackdropLabel"
@@ -27,18 +27,24 @@
             <div v-if="user">
               <router-link to="/products">All Products<i class="bi bi-cart-fill"></i></router-link>
             </div>
-        <router-link to="/login">Login<i class="bi bi-person"></i></router-link>
-        <router-link to="/register">Register<i class="bi bi-person-fill"></i></router-link>
-        <router-link to="/about">About <i class="bi bi-book-fill"></i></router-link>
+        <router-link to="/login">Login          <i class="bi bi-person"></i></router-link>
+        <router-link to="/register">Register          <i class="bi bi-person-fill"></i></router-link>
+        <router-link to="/about">About          <i class="bi bi-book-fill"></i></router-link>
+        <button type="button" class="btn-new bi bi-cart-fill  rounded border border-0" data-bs-target="#offcanvasScrolling" data-bs-toggle="offcanvas" aria-label="offcanvasWithBothOptions"></button>
           </div>
         </div>
       </div>
     </div>
   </nav>
+
+  <CartVue/>
 </template>
 
 <script>
+import CartVue from './Cart.vue'
+
 export default {
+  components: {CartVue},
     computed:{
       user(){
         return this.$store.state.user
@@ -53,7 +59,7 @@ export default {
   position: fixed;
   background-color: rgb(242, 242, 242) ;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
 }
 
 #nav a {
@@ -94,6 +100,15 @@ border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn-new:hover{
+    background-color: rgb(0, 162, 255);
+    color: rgb(242, 242, 242) ;
+}
+
+.btn-new{
+  width: 50%;
 }
 
 @media (max-width: 795px){
