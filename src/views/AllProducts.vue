@@ -16,9 +16,9 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="product-btns">
-                      <a class="product-btn" target="_blank"
+                      <router-link class="product-btn" :to="{name: 'singleProduct', params: {id: product.product_id}}"
                         ><span>details</span><i></i
-                      ></a>
+                      ></router-link>
                     </div>
                   </div>
                 </div>
@@ -27,8 +27,10 @@
           </div>
         </div>
       </div>
-        <div v-else>
-            <h1>Your Dad</h1>
+        <div v-else id="loading">
+            <div class="loader">
+              <div class="loaderBar"></div>
+            </div>
         </div>
     </div>
   </div>
@@ -77,6 +79,10 @@ h2:hover {
 
 .container{
     gap: 25px;
+}
+
+#loading{
+  min-height: 100vh;
 }
 
 .product-card {
@@ -302,5 +308,58 @@ h2:hover {
 .product-btn:hover i::after {
   width: 25px;
   left: 80%;
+}
+
+.loader { 
+  width:500px; 
+  margin:0 auto;
+  border-radius:10px;
+  border:4px solid transparent;
+  position:relative;
+  padding:1px;
+}
+.loader:before {
+  content:'';
+  border:2px solid black; 
+  border-radius: 5px;
+  position:absolute;
+  top:-6px; 
+  right:-4px; 
+  bottom:-6px; 
+  left:-4px;
+}
+.loader .loaderBar { 
+  position:absolute;
+  border-radius:10px;
+  top:0;
+  right:100%;
+  bottom:0;
+  left:0;
+  background: rgb(0, 162, 255); 
+  width:0;
+  animation:LoadingBar 2s linear infinite;
+}
+
+@keyframes LoadingBar {
+  0% {
+    left:0%;
+    right:100%;
+    width:0%;
+  }
+  10% {
+    left:0%;
+    right:75%;
+    width:25%;
+  }
+  90% {
+    right:0%;
+    left:75%;
+    width:25%;
+  }
+  100% {
+    left:100%;
+    right:0%;
+    width:0%;
+  }
 }
 </style>

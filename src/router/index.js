@@ -19,14 +19,15 @@ const routes = [
     name: 'register',
     component: () => import('../views/Register.vue')
   },  {
-    path: '/allProducts',
+    path: '/products',
     name: 'allProducts',
     component: () => import('../views/AllProducts.vue')
   },
   {
-    path: '/singleProduct',
+    path: '/products/:id',
     name: 'singleProduct',
-    component: () => import('../views/SingleProduct.vue')
+    component: () => import('../views/SingleProduct.vue'),
+    props: true
   },
   {
     path: '/about',

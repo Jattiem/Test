@@ -1,37 +1,51 @@
 <template>
   <div class="singleProduct d-flex justify-content-center pt-5">
     <div class="container">
-        <div class="product-card">
+    <div class="product-card" v-if="product">
 		<div class="product-tumb">
-			<img class="img-fluid" src="https://i.postimg.cc/NMpGXK3Q/Screenshot-2022-08-06-115457.png" alt="product">
+			<img class="img-fluid" :src="product[0].image" alt="product">
 		</div>
 		<div class="product-details">
-			<span class="product-catagory">Baby Yoda Sneaker</span>
-			<h4><a href="">Unlimited and lastest edition</a></h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+			<span class="product-catagory">{{product[0].category}}</span>
+			<h4><a href="">{{product[0].title}}</a></h4>
+			<p>{{product[0].description}}</p>
 			<div class="product-bottom-details">
                 <div class="row">
                     <div class="col-12">
-                        <div class="product-price ps-5">$230.99</div>
-                        </div>
-                        </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="product-btns">
-                    <a class="product-btn" target="_blank"><span>add to cart</span><i></i></a>
-				</div>
+                        <div class="product-price ps-5">R{{product[0].price}}</div>
+                    </div>
                 </div>
+                <div class="row">
+                  <div class="col-12">
+                      <div class="product-btns">
+                        <a class="product-btn" target="_blank"><span>Add to cart</span><i></i></a>
+				              </div>
+                  </div>
                 </div>
 			</div>
 		</div>
 	</div>
-            </div>
-        </div>
+  <div v-else id="loading">
+      <div class="loader">
+        <div class="loaderBar"></div>
+      </div>
+  </div>
+    </div>
+</div>
 </template>
 
 <script>
 export default {
+  props: ['id'],
 
+    mounted() {
+    this.$store.dispatch("getProduct", this.id);
+    },
+    computed: {
+      product() {
+        return this.$store.state.product;
+      },
+    },
 }
 </script>
 
@@ -45,11 +59,6 @@ export default {
     background-color: rgb(242, 242, 242);
 }
 
- /* h3{
-    color: rgb(0, 162, 255);
-} */
-
-
 .img-fluid{
   height: 100%;
     width: 100%;
@@ -59,55 +68,21 @@ export default {
   aspect-ratio: 1;
 }
 
-/* .btn{
-    background-color:  rgb(0, 162, 255);
-    color: white;
-}
-
-.btn:hover{
-    background-color:  rgb(0, 162, 255);
-    color: white;
-} */
-
-/* @media (max-width: 616px){
-  .row{
-    padding: 20px;
-  }
-} */
-
 .container {
   display: flex;
   width: 100%;
 }
 
+#loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+}
+
 .container > div > div img {
   object-fit: cover;
 }
-
-/* @media (max-width: 2000px){
-  .container {
-    display: flex;
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .container > div > div img {
-    object-fit: cover;
-  }
-}
-
-@media (max-width: 1000px){
-  .container {
-    display: flex;
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .container > div > div img {
-    object-fit: cover;
-  }
-}  */
-
 
 .product-card {
     width: 500px;
@@ -310,6 +285,60 @@ export default {
 .product-btn:hover i::after{
   width: 25px;
   left: 80%;
+}
+
+body { background:#333; }
+.loader { 
+  width:500px; 
+  margin:0 auto;
+  border-radius:10px;
+  border:4px solid transparent;
+  position:relative;
+  padding:1px;
+}
+.loader:before {
+  content:'';
+  border:1px solid black; 
+  border-radius:10px;
+  position:absolute;
+  top:-4px; 
+  right:-4px; 
+  bottom:-4px; 
+  left:-4px;
+}
+.loader .loaderBar { 
+  position:absolute;
+  border-radius:10px;
+  top:0;
+  right:100%;
+  bottom:0;
+  left:0;
+  background:rgb(0, 162, 255); 
+  width:0;
+  animation:LoadingBar 2s linear infinite;
+}
+
+@keyframes LoadingBar {
+  0% {
+    left:0%;
+    right:100%;
+    width:0%;
+  }
+  10% {
+    left:0%;
+    right:75%;
+    width:25%;
+  }
+  90% {
+    right:0%;
+    left:75%;
+    width:25%;
+  }
+  100% {
+    left:100%;
+    right:0%;
+    width:0%;
+  }
 }
 
 </style>
