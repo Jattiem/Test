@@ -16,7 +16,7 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="product-btns">
-                      <a class="product-btn" target="_blank"
+                      <a class="product-btn d-flex justify-content-center" target="_blank"
                         ><span>details</span><i></i
                       ></a>
                     </div>
@@ -203,6 +203,10 @@ h2:hover {
   font-weight: 600;
 }
 
+.col-12{
+  float: right;
+}
+
 .product-price small {
   font-size: 80%;
   font-weight: 400;
@@ -211,19 +215,12 @@ h2:hover {
   margin-right: 5px;
 }
 
-.product-btn {
-  display: flex !important;
-  justify-content: center !important;
-}
-
 .product-btn a {
   display: inline-block;
   margin-left: 5px;
   color: rgb(242, 242, 242);
   transition: 0.3s;
   font-size: 17px;
-  display: flex !important;
-  justify-content: center !important;
 }
 
 .product-btn a:hover {
@@ -244,8 +241,7 @@ h2:hover {
   width: 180px;
   text-align: center;
   margin-right: 5px;
-  display: flex !important;
-  justify-content: center !important;
+  left: 100%;
 }
 
 .product-btn:hover {
@@ -271,9 +267,7 @@ h2:hover {
   position: absolute;
   inset: 0;
   display: block;
-  display: flex !important;
-  justify-content: center !important;
-  float: left;
+  
 }
 
 .product-btn i::before {
