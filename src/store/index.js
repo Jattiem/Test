@@ -82,10 +82,10 @@ export default createStore({
       .then((response) => response.json())
       .then((data) => {
         if (data.msg == 'Email Not Found. Please register') {
-          alert('Email Not Found. Please register')
+          alert(data.msg)
         } else {
           if (data.msg == 'Password is Incorrect') {
-            alert('Password is Incorrect')
+            alert(data.msg)
           } else {
             alert(`Welcome, ${data.user[0].user_fullname}`)
             context.commit('setUser',data.user[0])
