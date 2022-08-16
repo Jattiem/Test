@@ -37,15 +37,9 @@
             <router-link to="/about"
               >About <i class="bi bi-book-fill"></i
             ></router-link>
-            <button
-              type="button"
-              class="btn-new bi bi-cart-fill rounded border border-0"
-              data-bs-target="#offcanvasScrolling"
-              data-bs-toggle="offcanvas"
-              aria-label="offcanvasWithBothOptions"
-            ></button>
-
-
+        <div v-if="user">
+          <button type="button" class="btn-new rounded border border-0" data-bs-target="#offcanvasScrolling" data-bs-toggle="offcanvas">Cart</button>
+        </div>
           </div>
         </div>
       </div>
