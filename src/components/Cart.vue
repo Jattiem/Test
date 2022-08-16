@@ -92,16 +92,16 @@ h1{
 }
 
 .offcanvas{
-  width: 25%;
+  width: 35%;
 }
 
 @media (max-width: 1028px){
   .offcanvas{
-    width: 35%;
+    width: 45%;
   }
 }
 
-@media (max-width: 426px){
+@media (max-width: 515px){
   .offcanvas{
     width: 75%;
   }
