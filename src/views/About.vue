@@ -121,7 +121,7 @@
                             <div class="col-sm-2">
                               <h3>
                                 <a
-                                  href=""
+                                  href="https://muddathir-vue-portfolio.web.app/"
                                   target="_blank"
                                   ><i class="bi-solid bi-person-fill" id="md-icon"></i
                                 ></a>
@@ -226,6 +226,10 @@ export default {};
 .imgContainer {
   overflow: hidden;
   position: relative;
+}
+
+.imgContainer img{
+  margin: 10px 10px 10px 10px;
 }
 
 .imgContainer:hover img {

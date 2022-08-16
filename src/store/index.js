@@ -159,7 +159,8 @@ export default createStore({
       if (data.result == 'There is no user with that ID') {
         alert(data.result)
       } else {
-        alert(data.results)
+        alert(
+          'The purchase of ' + context.state.user.user_fullname + ' with a total of R' + Math.round((context.state.total + Number.EPSILON)*100)/100)
         context.dispatch('getUserCart')
       }
     })

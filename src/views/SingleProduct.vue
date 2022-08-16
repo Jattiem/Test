@@ -243,7 +243,7 @@ export default {
 }
 
 .product-btn:hover{
-  letter-spacing: 0.25em;
+  letter-spacing: 0.15em;
   background-color: rgb(0, 162, 255);
   color: rgb(0, 162, 255);
   box-shadow: 0 0 10px rgb(0, 162, 255);
@@ -271,7 +271,7 @@ export default {
   content: '';
   position: absolute;
   top: -3.5px;
-  left: 80%;
+  left: 100%;
   width: 20px;
   height: 10px;
   border: 2px solid rgb(0, 162, 255);

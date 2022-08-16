@@ -108,7 +108,7 @@ export default {
 }
 
 .product-bottom-details div {
-  width: 50%;
+  width: 130px;
 }
 
 @media (max-width: 424px) {
@@ -167,12 +167,17 @@ export default {
   text-align: right;
 }
 
+.product-btn i{
+  width: 135px;
+}
+
 .product-btn a {
   display: inline-block;
   margin-left: 5px;
   color: rgb(242, 242, 242);
   transition: 0.3s;
   font-size: 17px;
+  width: 135px;
 }
 
 .product-btn a:hover {
@@ -190,12 +195,12 @@ export default {
   letter-spacing: 0.1em;
   padding: 10px 30px;
   transition: 0.5s;
-  width: 100%;
+  width: 95%;
   text-align: center;
 }
 
 .product-btn:hover {
-  letter-spacing: 0.25em;
+  letter-spacing: 0.20em;
   background-color: rgb(0, 162, 255);
   color: rgb(0, 162, 255);
   box-shadow: 0 0 10px rgb(0, 162, 255);
@@ -206,6 +211,7 @@ export default {
   position: absolute;
   inset: 2px;
   background: white;
+  width: 100%;
 }
 
 .product-btn span {
@@ -223,7 +229,7 @@ export default {
   content: "";
   position: absolute;
   top: -3.5px;
-  left: 80%;
+  left: 79%;
   width: 20px;
   height: 10px;
   border: 2px solid rgb(0, 162, 255);
