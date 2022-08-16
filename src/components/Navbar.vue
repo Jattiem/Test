@@ -24,26 +24,51 @@
       <div class="offcanvas-body">
         <div>
           <div class="row gap-2 d-flex justify-content-center fw-bold">
-            <router-link to="/">Home          <i class="bi bi-house"></i></router-link>
-        <router-link to="/allProducts">All Products          <i class="bi bi-bag-fill"></i></router-link>
-        <router-link to="/login">Login          <i class="bi bi-person"></i></router-link>
-        <router-link to="/register">Register          <i class="bi bi-person-fill"></i></router-link>
-        <router-link to="/about">About          <i class="bi bi-book-fill"></i></router-link>
-        <button type="button" class="btn-new bi bi-cart-fill  rounded border border-0" data-bs-target="#offcanvasScrolling" data-bs-toggle="offcanvas" aria-label="offcanvasWithBothOptions"></button>
+            <router-link to="/">Home <i class="bi bi-house"></i></router-link>
+            <div v-if="user">
+              <router-link to="/products">All Products<i class="bi bi-cart-fill"></i></router-link>
+            </div>
+            <router-link to="/login"
+              >Login <i class="bi bi-person"></i
+            ></router-link>
+            <router-link to="/register"
+              >Register <i class="bi bi-person-fill"></i
+            ></router-link>
+            <router-link to="/about"
+              >About <i class="bi bi-book-fill"></i
+            ></router-link>
+            <button
+              type="button"
+              class="btn-new bi bi-cart-fill rounded border border-0"
+              data-bs-target="#offcanvasScrolling"
+              data-bs-toggle="offcanvas"
+              aria-label="offcanvasWithBothOptions"
+            ></button>
+
+
           </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <CartVue/>
+  <CartVue />
+
 </template>
 
 <script>
 import CartVue from "./Cart.vue";
 
 export default {
-    components: {CartVue}
+  components: {CartVue},
+    computed:{
+      user(){
+        return this.$store.state.user
+      },
+      cart(){
+        return this.$store.state.cart
+      }
+    }
 }
 </script>
 

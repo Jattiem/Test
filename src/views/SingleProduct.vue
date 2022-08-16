@@ -1,6 +1,7 @@
 <template>
   <div class="singleProduct d-flex justify-content-center pt-5">
     <div class="container">
+      <a href="/products"><button class="btn btn-new">Back</button></a>
     <div class="product-card" v-if="product">
 		<div class="product-tumb">
 			<img class="img-fluid" :src="product[0].image" alt="product">
@@ -37,7 +38,6 @@
 <script>
 export default {
   props: ['id'],
-
     mounted() {
     this.$store.dispatch("getProduct", this.id);
     },
@@ -65,6 +65,12 @@ export default {
   overflow-x: hidden;
   transition: all 1s ease;
   aspect-ratio: 1;
+}
+
+.btn-new{
+  position: absolute;
+  top: 10%;
+  background-color: white;
 }
 
 .container {

@@ -122,6 +122,18 @@ export default {
   }
 }
 
+@media (max-width: 750px) {
+  .product-card {
+    width: 100%;
+  }
+  .product-bottom-details div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
 @media (min-width: 768px){
     .col-md-4{
         width: 50% ;
@@ -224,7 +236,7 @@ export default {
   content: "";
   position: absolute;
   top: -3.5px;
-  left: 80%;
+  left: 88%;
   width: 20px;
   height: 10px;
   border: 2px solid rgb(0, 162, 255);
