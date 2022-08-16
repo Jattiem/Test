@@ -1,5 +1,5 @@
 <template>
-  <div class="admin pt-5 pb-5 p-5">
+  <div class="admin pt-5 pb-5" v-if="user">
     <h2>Admin Page</h2>
     <div class="container">
         <div class="table-responsive">
@@ -43,36 +43,36 @@
         <table class="table table-white table-hover">
           <thead>
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Product Name</th>
-              <th scope="col">Product Image</th>
-              <th scope="col">Description</th>
-              <th scope="col">Category</th>
-              <th scope="col">Price</th>
-              <th scope="col">Created BY</th>
-              <th scope="col">
+              <th class="table__heading">ID</th>
+              <th class="table__heading">Product Name</th>
+              <th class="table__heading">Product Image</th>
+              <th class="table__heading">Description</th>
+              <th class="table__heading">Category</th>
+              <th class="table__heading">Price</th>
+              <th class="table__heading">Created BY</th>
+              <th class="table__heading">
                 <button
-                  data-bs-target="#AddProductModal"
-                  data-bs-toggle="modal"
+                  data-bs-toggle="modal" data-bs-target="#addProduct"
                   class="btn"
                 >
                   ADD
                 </button>
+                <Add :product="product" />
               </th>
             </tr>
           </thead>
           <tbody v-if="products">
             <tr v-for="product in products" :key="product" :product="product">
-              <th scope="row">{{ product.product_id }}</th>
-              <th scope="row">{{ product.title }}</th>
-              <th scope="row">
+              <th class="table__content" data-heading="ID">{{ product.product_id }}</th>
+              <th class="table__content" data-heading="Product Name">{{ product.title }}</th>
+              <th class="table__content" data-heading="Product Image">
                 <img class="img-fluid" :src="product.image" alt="product" />
               </th>
-              <th scope="row">{{ product.description }}</th>
-              <th scope="row">{{ product.category }}</th>
-              <th scope="row">{{ product.price }}</th>
-              <th scope="row">{{ product.created_by }}</th>
-              <th scope="row">
+              <th class="table__content" data-heading="Description">{{ product.description }}</th>
+              <th class="table__content" data-heading="Category">{{ product.category }}</th>
+              <th class="table__content" data-heading="Price">{{ product.price }}</th>
+              <th class="table__content" data-heading="Created BY">{{ product.created_by }}</th>
+              <th class="table__content" data-heading="ADD">
                 <button
                   data-bs-toggle="modal" :data-bs-target="`#editProduct`+product.product_id"
                   class="btn"
@@ -94,10 +94,19 @@
       </div>
     </div>
   </div>
+  <div v-else>
+    <h2 class="display-2">Please login to view the admin page</h2>
+  </div>
 </template>
 
 <script>
+
+import EditProduct  from  '../components/EditProduct.vue'
+import DeleteProduct from '../components/DeleteProduct.vue'
+import Add from '../components/Add.vue'
+
 export default {
+    components: { EditProduct, DeleteProduct, Add },
   mounted() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch("getUsers");
@@ -109,6 +118,9 @@ export default {
     users() {
       return this.$store.state.users;
     },
+    user(){
+      return this.$store.state.user
+    }
   },
 };
 </script>
@@ -142,6 +154,8 @@ export default {
   table tr,
   table th {
     display: block;
+    color: black;
+  background-color: rgb(242, 242, 242);
   }
   table thead tr {
     display: block;
@@ -154,28 +168,14 @@ export default {
     position: absolute;
     left: 0;
     font-weight: bold;
-    background-color: darkgrey;
+    color: black;
+  background-color: rgb(242, 242, 242);
   }
 } */
 
-.table {
-  width: 500px !important;
-  padding: 16px;
-  padding: 1rem;
-}
-
-td, th { padding: 8px; padding: .5rem;
-}
-
-th {
-  text-align: left;
-  font-weight: 300;
-  font-size: 20px;
-  font-size: 1.25rem;
-}
 
 .table__heading { border-bottom: 2px solid rgb(0, 162, 255); }
- @media (max-width: 32rem) {
+ @media (max-width: 800px) {
  .table__heading {
 display: none;
 }
@@ -202,38 +202,8 @@ display: none;
 }
 }
 
-
-@media screen and (max-width: 675px) {
-  .setTableOff thead,
-  .setTableOff tbody,
-  .setTableOff tr,
-  .setTableOff th {
-    display:block;
-  }
-  .setTableOff thead tr {
-    display: block;
-  }
-  .setTableOff tbody td {
-    text-align: center;
-  }
-  .setTableOff tbody td::before {
-    content: attr(data-title);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    background-color: darkgrey;
-  }
-}
-
-table {
-  width: 500px !important;
-  color: black;
-  background-color: rgb(242, 242, 242);
-}
-
-table {
-  width: 500px !important;
-  color: black;
+table{
+    color: black;
   background-color: rgb(242, 242, 242);
 }
 
@@ -245,9 +215,6 @@ table {
   aspect-ratio: 1;
 }
 
-/* th {
-  border-bottom: 1px solid #000000;
-} */
 
 .btn {
   background-color: rgb(0, 162, 255);

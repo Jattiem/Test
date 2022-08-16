@@ -1,7 +1,7 @@
 <template>
   <div class="singleProduct d-flex justify-content-center pt-5">
     <div class="container">
-      <a href="/products"><button class="btn btn-new">Back</button></a>
+      <router-link to="/products"><button class="btn btn-new">Back</button></router-link>
     <div class="product-card" v-if="product">
 		<div class="product-tumb">
 			<img class="img-fluid" :src="product[0].image" alt="product">

@@ -28,6 +28,9 @@
             <div v-if="user">
               <router-link to="/products">All Products<i class="bi bi-cart-fill"></i></router-link>
             </div>
+            <div v-if="user">
+              <router-link to="/admin">Admin <i class="bi bi-book"></i></router-link>
+            </div>
             <router-link to="/login"
               >Login <i class="bi bi-person"></i
             ></router-link>

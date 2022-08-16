@@ -68,8 +68,21 @@ export default createStore({
       .then((res)=> res.json())
       .then((data)=> context.dispatch('getProducts'));
   },
+
+  async addProduct(context,payload){
+    fetch('https://pointofsalecmapi.herokuapp.com/products', {
+        method:'POST',
+        body: JSON.stringify(payload),
+        headers:{
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    })
+    .then((res)=> res.json())
+    .then((data)=> context.dispatch('getProducts'));
+},
+
   async deleteProduct(context,payload){
-      fetch('hhttps://pointofsalecmapi.herokuapp.com/products/'+payload, {
+      fetch('https://pointofsalecmapi.herokuapp.com/products/'+payload, {
           method:'DELETE'
       })
       .then((res)=> res.json())
