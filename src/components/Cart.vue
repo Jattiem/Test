@@ -1,9 +1,9 @@
 <template>
   <div class="cart" v-if="user">
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling">
   <div class="offcanvas-header">
     <h1 class="offcanvas-title" id="offcanvasScrollingLabel">Cart<i class="bi bi-cart-fill"></i></h1>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="offcanvas-body">
     <p>{{user.user_fullname}}'s Cart </p>
@@ -18,13 +18,11 @@
       </div>
     </div>
     <div v-else>
-        <div class="loader">
-          <div class="loaderBar"></div>
-        </div>
+        <h3>No Items in Cart</h3>
     </div>
   </div>
   <div class="offcanvas-footer">
-    <button type="button" id="clearButton" @click="clear()">Clear</button>
+    <button type="button" id="clearButton" @click="clear()">Checkout</button>
   </div>
 </div>
   </div>
@@ -49,6 +47,7 @@ export default {
     methods:{
       clear(){
         this.$store.dispatch('deleteCart')
+        this.cart = null
       }
     }
 }
@@ -121,15 +120,15 @@ h1{
 }
 
 #clearButton{
-  background-color: rgb(185, 2, 2);
+  background-color: rgb(0, 162, 255);
   color: white;
   border-radius: 200px;
-  width: 100px;
+  width: 125px;
   transition: all 0.5s;
 }
 
 #clearButton:hover{
-  background-color: rgb(125, 2, 2);
+  background-color: rgb(0, 96, 151);
   border: 1px solid white;
   transition: all 0.5s;
 }
@@ -151,65 +150,6 @@ h1{
   box-shadow:  10px 10px 30px #bababa;
   margin: 0 !important;
   margin-bottom: 100px;
-}
-
-#loading{
-  min-height: 100vh;
-}
-
-
-
-.loader { 
-  width:500px; 
-  margin:0 auto;
-  border-radius:10px;
-  border:4px solid transparent;
-  position:relative;
-  padding:1px;
-}
-.loader:before {
-  content:'';
-  border:2px solid black; 
-  border-radius: 5px;
-  position:absolute;
-  top:-6px; 
-  right:-4px; 
-  bottom:-6px; 
-  left:-4px;
-}
-.loader .loaderBar { 
-  position:absolute;
-  border-radius:10px;
-  top:0;
-  right:100%;
-  bottom:0;
-  left:0;
-  background: rgb(0, 162, 255); 
-  width:0;
-  animation:LoadingBar 2s linear infinite;
-}
-
-@keyframes LoadingBar {
-  0% {
-    left:0%;
-    right:100%;
-    width:0%;
-  }
-  10% {
-    left:0%;
-    right:75%;
-    width:25%;
-  }
-  90% {
-    right:0%;
-    left:75%;
-    width:25%;
-  }
-  100% {
-    left:100%;
-    right:0%;
-    width:0%;
-  }
 }
 
 </style>

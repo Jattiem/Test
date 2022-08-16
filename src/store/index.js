@@ -100,7 +100,7 @@ export default createStore({
             alert(`Welcome, ${data.user[0].user_fullname}`)
             context.commit('setUser',data.user[0])
             context.commit('setToken',data.token)
-            context.dispatch('getUserCart',data.user[0].user_id)
+            context.dispatch('getUserCart')
             setTimeout(()=>{
               router.push('/products'), 5000
             })
@@ -110,8 +110,8 @@ export default createStore({
       });
 
     },
-    async getUserCart(context, id){
-      let fetched = await fetch('https://pointofsalecmapi.herokuapp.com/users/' + id + '/cart');
+    async getUserCart(context){
+      let fetched = await fetch('https://pointofsalecmapi.herokuapp.com/users/' + context.state.user.user_id + '/cart');
       let res = await fetched.json();
       context.commit('setUserCart', res.cart)
       context.dispatch('getTotalCart')
@@ -139,32 +139,30 @@ export default createStore({
             alert(data.results)
           } else {
             alert('Item Added')
-            context.dispatch('getUserCart', context.state.user.user_id)
+            context.dispatch('getUserCart')
           }
     })
   },
   getTotalCart(context){
     let total = 0;
-    console.log(toRaw(context.state.cart))
     toRaw(context.state.cart).forEach(product => {
       total = total + product.price
     });
-    console.log(total)
     context.commit('setTotal', total)
   },
   deleteCart(context){
     fetch('https://pointofsalecmapi.herokuapp.com/users/' + context.state.user.user_id + '/cart', {
     method: 'DELETE'
+    })
     .then((res) => res.json())
     .then((data) =>{
       if (data.result == 'There is no user with that ID') {
         alert(data.result)
       } else {
-        alert('Cart Successfully Cleared')
-        context.dispatch('getUserCart', context.state.user.user_id)
+        alert(data.results)
+        context.dispatch('getUserCart')
       }
     })
-  })
   }
   },
   modules: {

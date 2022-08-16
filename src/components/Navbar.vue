@@ -31,7 +31,7 @@
         <router-link to="/register">Register<i class="bi bi-person-fill"></i></router-link>
         <router-link to="/about">About<i class="bi bi-book-fill"></i></router-link>
         <div v-if="user">
-          <button type="button" class="btn-new bi bi-cart-fill  rounded border border-0" data-bs-target="#offcanvasScrolling" data-bs-toggle="offcanvas"></button>
+          <button type="button" class="btn-new rounded border border-0" data-bs-target="#offcanvasScrolling" data-bs-toggle="offcanvas">Cart</button>
         </div>
           </div>
         </div>
