@@ -3,6 +3,7 @@
     <div class="container">
       <h2 class="display-2">Products</h2>
       <div class="row" v-if="products">
+        <input type="search" name="search" id="search" placeholder="Please Search for Name of Product" v-model="search">
           <ProductCards v-for="product in products" :key="product" :product="product" />
       </div>
         <div v-else id="loading">
@@ -19,13 +20,24 @@ import ProductCards from "../components/ProductCards.vue";
 
 export default {
   components:{ProductCards},
+  data(){
+    return{
+      search: ''
+    }
+  },
   mounted() {
     this.$store.dispatch("getProducts");
   },
   computed: {
     products() {
-      return this.$store.state.products;
-    },
+      return this.$store.state.products?.filter(products =>{
+          let isMatch = true;
+          if (!products.title.toLowerCase().includes(this.search.toLowerCase())) {
+              isMatch = false;
+          }
+          return isMatch
+          })
+        }
   },
 };
 </script>
@@ -119,5 +131,12 @@ h2:hover {
     right:0%;
     width:0%;
   }
+}
+
+#search{
+  margin-bottom: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 100%;
 }
 </style>

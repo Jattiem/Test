@@ -17,7 +17,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                      <div class="product-btns">
+                      <div class="product-btns" @click="addCart()">
                         <a class="product-btn" target="_blank"><span>Add to cart</span><i></i></a>
 				              </div>
                   </div>
@@ -45,7 +45,23 @@ export default {
       product() {
         return this.$store.state.product;
       },
+      user(){
+        return this.$store.state.user
+      }
     },
+    methods:{
+      addCart(){
+        let product = {
+          title: this.product[0].title,
+          category: this.product[0].category,
+          description: this.product[0].description,
+          image: this.product[0].image,
+          price: this.product[0].price,
+          created_by: this.product[0].created_by
+        }
+        this.$store.dispatch('addCart', product, this.user.user_id)
+      }
+    }
 }
 </script>
 

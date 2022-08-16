@@ -190,9 +190,8 @@ export default {
   letter-spacing: 0.1em;
   padding: 10px 30px;
   transition: 0.5s;
-  width: 180px;
+  width: 100%;
   text-align: center;
-  margin-right: 5px;
 }
 
 .product-btn:hover {
