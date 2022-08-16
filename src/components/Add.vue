@@ -4,7 +4,6 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addProductLabel">New Product</h5>
-        <button type="button" id="addProductClose" class="btn-close"></button>
       </div>
       <div class="modal-body">
         <form method="POST" @submit="addProduct">

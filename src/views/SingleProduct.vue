@@ -1,5 +1,5 @@
 <template>
-  <div class="singleProduct d-flex justify-content-center pt-5">
+  <div class="singleProduct d-flex justify-content-center pb-5 pt-5">
     <div class="container">
       <router-link to="/products"><button class="btn btn-new">Back</button></router-link>
     <div class="product-card" v-if="product">
@@ -69,7 +69,6 @@ export default {
 .singleProduct {
   background: url("https://i.postimg.cc/zBcRB35M/20355544.jpg") no-repeat center
     center/cover;
-  height: 100vh;
   color: black;
   background-color: rgb(242, 242, 242);
 }
@@ -86,8 +85,12 @@ export default {
 .btn-new{
   position: absolute;
   top: 10%;
-  background-color: white;
+  background-color:  rgb(0, 162, 255);
+  color: white;
+  z-index: 10;
 }
+
+
 
 .container {
   display: flex;
@@ -197,6 +200,8 @@ export default {
     width: 50%;
   }
 }
+
+
 
 .product-price {
   font-size: 18px;

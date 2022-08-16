@@ -32,7 +32,8 @@
               {{ user.join_date }}
             </td>
             <td class="table__content" data-heading="Cart">
-              <button class="btn">cart</button>
+              <button data-bs-toggle="modal" data-bs-target="#cart" class="btn">cart</button>
+              <CartModal :product="product" style="z-index: 1504;"/>
             </td>
           </tr>
         </tbody>
@@ -53,7 +54,7 @@
               <th class="table__heading">
                 <button
                   data-bs-toggle="modal" data-bs-target="#addProduct"
-                  class="btn"
+                  class="btn-add"
                 >
                   ADD
                 </button>
@@ -79,6 +80,8 @@
                 >
                   Edit
                 </button>
+                <br>
+                <br>
                 <button
                   data-bs-toggle="modal" :data-bs-target="`#deleteProduct`+product.product_id"
                   class="btn"
@@ -104,9 +107,10 @@
 import EditProduct  from  '../components/EditProduct.vue'
 import DeleteProduct from '../components/DeleteProduct.vue'
 import Add from '../components/Add.vue'
+import CartModal from '../components/CartModal.vue';
 
 export default {
-    components: { EditProduct, DeleteProduct, Add },
+    components: { EditProduct, DeleteProduct, Add, CartModal },
   mounted() {
     this.$store.dispatch("getProducts");
     this.$store.dispatch("getUsers");
@@ -200,11 +204,22 @@ display: none;
  text-transform: uppercase;
  letter-spacing: 2px;
 }
+.btn-add{
+    background-color: black;
+    color: white;
+}
 }
 
 table{
     color: black;
   background-color: rgb(242, 242, 242);
+  padding: 50px !important;
+}
+
+.table{
+    color: black;
+  background-color: rgb(242, 242, 242);
+  padding: 50px !important;
 }
 
 .img-fluid {

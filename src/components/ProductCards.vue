@@ -229,13 +229,14 @@ export default {
   position: absolute;
   inset: 0;
   display: block;
+  width: 100%;
 }
 
 .product-btn i::before {
   content: "";
   position: absolute;
   top: -3.5px;
-  left: 88%;
+  left: 80%;
   width: 20px;
   height: 10px;
   border: 2px solid rgb(0, 162, 255);

@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="display-2">Products</h2>
       <div class="row" v-if="products">
-        <input type="search" name="search" id="search" placeholder="Please Search for Name of Product" v-model="search">
+        <input type="search" class="rounded h-50" name="search" id="search" placeholder="Please Search for Name of Product" v-model="search">
           <ProductCards v-for="product in products" :key="product" :product="product" />
       </div>
         <div v-else id="loading">
@@ -133,9 +133,33 @@ h2:hover {
 }
 
 #search{
-  margin-bottom: 25px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 10px;
   width: 100%;
 }
+
+@media (max-width:840px){
+  #search{
+  width: 97%;
+}
+}
+
+@media (max-width:540px){
+  #search{
+  width: 96%;
+}
+}
+
+@media (max-width:440px){
+  #search{
+  width: 95%;
+}
+}
+
+@media (max-width:340px){
+  #search{
+  width: 93%;
+}
+}
+
+
 </style>
