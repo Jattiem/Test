@@ -1,93 +1,40 @@
 <template>
-  <div class="singleProduct d-flex justify-content-center pt-5">
-    <div class="container">
-    <div class="product-card" v-if="product">
-		<div class="product-tumb">
-			<img class="img-fluid" :src="product[0].image" alt="product">
-		</div>
-		<div class="product-details">
-			<span class="product-catagory">{{product[0].category}}</span>
-			<h4><a href="">{{product[0].title}}</a></h4>
-			<p>{{product[0].description}}</p>
-			<div class="product-bottom-details">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="product-price ps-5">R{{product[0].price}}</div>
-                    </div>
+    <div class="col-md-4 pb-5">
+    <div class="product-card">
+      <div class="badge ms-2">Sale</div>
+        <div class="product-tumb">
+          <img :src="product.image" alt="product"/>
+        </div>
+        <div class="product-details">
+          <span class="product-catagory">Limited Edition</span>
+          <h4> {{product.title}} </h4>
+          <div class="product-bottom-details d-flex justify-content-center">
+            <div class="row">
+              <div class="col-12">
+                <div class="product-btns">
+                  <router-link class="product-btn" :to="{name: 'singleProduct', params: {id: product.product_id}}"
+                    ><span>details</span><i></i
+                  ></router-link>
                 </div>
-                <div class="row">
-                  <div class="col-12">
-                      <div class="product-btns">
-                        <a class="product-btn" target="_blank"><span>Add to cart</span><i></i></a>
-				              </div>
-                  </div>
-                </div>
-			</div>
-		</div>
-	</div>
-  <div v-else id="loading">
-      <div class="loader">
-        <div class="loaderBar"></div>
+              </div>
+            </div>
+          </div>
       </div>
-  </div>
     </div>
-</div>
+        </div>
 </template>
 
 <script>
 export default {
-  props: ['id'],
-
-    mounted() {
-    this.$store.dispatch("getProduct", this.id);
-    },
-    computed: {
-      product() {
-        return this.$store.state.product;
-      },
-    },
+  props: ['product']
 }
 </script>
 
-<style scoped>
-.singleProduct {
-  background: url("https://i.postimg.cc/zBcRB35M/20355544.jpg") no-repeat center
-    center/cover;
-  height: 100vh;
-  color: black;
-  background-color: rgb(242, 242, 242);
-}
-
-.img-fluid{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  overflow-x: hidden;
-  transition: all 1s ease;
-  aspect-ratio: 1;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-}
-
-#loading{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10%;
-}
-
-.container > div > div img {
-  object-fit: cover;
-}
-
+<style>
 .product-card {
-  width: 500px;
+  width: 380px;
   position: relative;
   box-shadow: 0 2px 7px #dfdfdf;
-  margin: auto;
   background: #fafafa;
 }
 
@@ -108,7 +55,7 @@ export default {
   align-items: center;
   justify-content: center;
   height: 300px;
-  padding: 10px;
+  padding: 50px;
   background: #f0f0f0;
 }
 
@@ -155,26 +102,52 @@ export default {
   color: rgb(0, 162, 255);
 }
 
-/* .bi-heart{
-    color: rgb(0, 162, 255);
-} */
-
 .product-bottom-details {
   overflow: hidden;
   border-top: 1px solid #eee;
-  /* padding-top: 40px; */
 }
 
 .product-bottom-details div {
-  float: left;
   width: 50%;
 }
 
 @media (max-width: 424px) {
+  .product-card {
+    width: 100%;
+  }
   .product-bottom-details div {
     width: 50%;
+    display: flex;
+    justify-content: center;
   }
 }
+
+@media (min-width: 768px){
+    .col-md-4{
+        width: 50% ;
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+} 
+
+@media (min-width: 600px){
+    .col-md-4{
+        width: 50% ;
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+} 
+
+@media (max-width: 699px){
+    .col-md-4{
+        width: 100% ;
+        /* flex: 0 0 auto; */
+        display: flex;
+        justify-content: center;
+    }
+} 
 
 .product-price {
   font-size: 18px;
@@ -197,7 +170,7 @@ export default {
 .product-btn a {
   display: inline-block;
   margin-left: 5px;
-  color: #e1e1e1;
+  color: rgb(242, 242, 242);
   transition: 0.3s;
   font-size: 17px;
 }
@@ -255,7 +228,7 @@ export default {
   width: 20px;
   height: 10px;
   border: 2px solid rgb(0, 162, 255);
-  background: rgb(242, 242, 242);
+  background: white;
   transform: translateX(-50%);
   transition: 0.6s;
 }
@@ -273,7 +246,7 @@ export default {
   width: 20px;
   height: 10px;
   border: 2px solid rgb(0, 162, 255);
-  background: rgb(255, 255, 255);
+  background: white;
   transform: translateX(-50%);
   transition: 0.6s;
 }
@@ -282,59 +255,4 @@ export default {
   width: 25px;
   left: 80%;
 }
-
-.loader { 
-  width:500px; 
-  margin:0 auto;
-  border-radius:10px;
-  border:4px solid transparent;
-  position:relative;
-  padding:1px;
-}
-.loader:before {
-  content:'';
-  border:1px solid black; 
-  border-radius:10px;
-  position:absolute;
-  top:-4px; 
-  right:-4px; 
-  bottom:-4px; 
-  left:-4px;
-}
-.loader .loaderBar { 
-  position:absolute;
-  border-radius:10px;
-  top:0;
-  right:100%;
-  bottom:0;
-  left:0;
-  background:rgb(0, 162, 255); 
-  width:0;
-  animation:LoadingBar 2s linear infinite;
-}
-
-@keyframes LoadingBar {
-  0% {
-    left:0%;
-    right:100%;
-    width:0%;
-  }
-  10% {
-    left:0%;
-    right:75%;
-    width:25%;
-  }
-  90% {
-    right:0%;
-    left:75%;
-    width:25%;
-  }
-  100% {
-    left:100%;
-    right:0%;
-    width:0%;
-  }
-}
-
 </style>
->>>>>>> 19959034a9924c79ef4466a5bf2b91c62b8cea8a

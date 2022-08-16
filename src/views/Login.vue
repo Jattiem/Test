@@ -17,6 +17,7 @@
               type="email"
               placeHolder="Enter your Email"
               class="form-control w-100 mx-auto"
+              v-model="email"
             />
           </div>
         </div>
@@ -27,14 +28,15 @@
           <div class="col-12">
             <input
               name="password"
-              type="text"
+              type="password"
               placeHolder="Enter your Password"
               class="form-control w-100 mx-auto"
+              v-model="password"
             />
           </div>
         </div>
         <div class="col-12 pt-3">
-          <button class="btn border border-0" type="submit">Login</button>
+          <button class="btn border border-0" type="button" @click="login()">Login</button>
         </div>
       </div>
     </div>
@@ -43,7 +45,21 @@
 
 <script>
 export default {
-  
+    data(){
+      return{
+          email: '',
+          password: '',
+      }
+    },
+    methods:{
+      login(){
+        const user = {
+            email: this.email,
+            password: this.password
+        }
+      this.$store.dispatch('login', user) 
+      }
+    }
 };
 </script>
 

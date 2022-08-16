@@ -1,10 +1,13 @@
+import router from '@/router'
 import { createStore } from 'vuex'
 
 export default createStore({
   state: {
     products: null,
-    users: null,
-    product: null
+    product: null,
+    user: null,
+    token: null,
+    cart: null
   },
   getters: {
   },
@@ -12,11 +15,17 @@ export default createStore({
     setProducts(state, products){
       state.products = products
     },
-    setUsers(state, users){
-      state.users = users
+    setUser(state, user){
+      state.user = user
     },
     setProduct(state, product){
       state.product = product
+    },
+    setToken(state, token){
+      state.token = token
+    },
+    setUserCart(state, cart){
+      state.cart = cart
     }
   },
   actions: {
@@ -24,6 +33,7 @@ export default createStore({
       let fetched = await fetch('https://pointofsalecmapi.herokuapp.com/products');
       let res = await fetched.json();
       context.commit('setProducts',res.products)
+
   }
   },
   modules: {
