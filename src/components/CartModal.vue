@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body" v-if="cart">
         <div id="card" v-for="product in cart" :key="product" :product="product">
-            <h3>{{product.title}}</h3>
+            <h3>{{product.brand}}</h3>
             <img :scr="product.image">
         </div>
       </div>

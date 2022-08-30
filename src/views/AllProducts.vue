@@ -20,11 +20,11 @@ import ProductCards from "../components/ProductCards.vue";
 
 export default {
   components:{ProductCards},
-  data(){
-    return{
-      search: ''
-    }
-  },
+    data(){
+      return{
+        search: ''
+      }
+    },
   mounted() {
     this.$store.dispatch("getProducts");
   },

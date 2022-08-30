@@ -6,11 +6,11 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="offcanvas-body">
-    <p>{{user.user_fullname}}'s Cart </p>
+    <p>{{user.fullname}}'s Cart </p>
     <div v-if="cart" id="cart">
       <div id="card" v-for="product in cart" :key="product" :product="product">
           <img :src="product.image" alt="Cart Item" class="img-fluid">
-          <h3>{{product.title}}</h3>
+          <h3>{{product.brand}}</h3>
           <h5>R{{product.price}}</h5>
       </div>
       <div id="total">

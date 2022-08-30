@@ -9,7 +9,7 @@
             <h3 class="display-4 pt-5">Register</h3>
           </div>
           <div class="col-12">
-            <h4><label for="name">Full Name:</label></h4>
+            <h4><label for="fullname">Full Name:</label></h4>
           </div>
           <div class="col-12">
             <input
@@ -62,7 +62,7 @@
               placeHolder="Enter your Phone Number"
               class="form-control w-100 mx-auto"
               minlength="10"
-              v-model="number"
+              v-model="phonenumber"
             />
           </div>
         </div>
@@ -83,7 +83,7 @@ export default {
       fullname: '',
       email: '',
       password: '',
-      number: ''
+      phonenumber: ''
     }
   },
   methods:{
@@ -92,7 +92,7 @@ export default {
           fullname: this.fullname,
           email: this.email,
           password: this.password,
-          number: this.number
+          phonenumber: this.phonenumber
       }
       this.$store.dispatch('register', user) 
     }

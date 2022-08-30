@@ -37,8 +37,9 @@
 export default {
    data(){
     return{
-        title: '',
-        image:'',
+        brand: '',
+        Model: '',
+        img:'',
         description:'',
         category:'',
         price:'',
@@ -53,12 +54,12 @@ export default {
         addProduct(e){
             e.preventDefault();
             let newProduct = {
-                title: this.title,
-                image: this.image,
+                brand: this.brand,
+                img: this.img,
                 description: this.description,
                 category: this.category ,
                 price: this.price ,
-                created_by: this.user.user_id
+                // created_by: this.user.user_id
             }
             this.$store.dispatch('addProduct',newProduct);
          }

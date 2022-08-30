@@ -15,21 +15,21 @@
         </tr>
         <tbody v-if="users">
           <tr class="table__row" v-for="user in users" :key="user" :user="user">
-            <td class="table__content" data-heading="ID">{{ user.user_id }}</td>
+            <td class="table__content" data-heading="ID">{{ user.id }}</td>
             <td class="table__content" data-heading="User FullName">
-              {{ user.user_fullname }}
+              {{ user.fullname }}
             </td>
             <td class="table__content" data-heading="User Role">
-              {{ user.userrole }}
+              {{ user.userRole }}
             </td>
             <td class="table__content" data-heading="Email">
               {{ user.email }}
             </td>
             <td class="table__content" data-heading="Phone">
-              {{ user.phone_number }}
+              {{ user.phonenumber }}
             </td>
             <td class="table__content" data-heading="Join">
-              {{ user.join_date }}
+              {{ user.dateJoined }}
             </td>
             <td class="table__content" data-heading="Cart">
               <button data-bs-toggle="modal" data-bs-target="#cart" class="btn">cart</button>
@@ -64,18 +64,18 @@
           </thead>
           <tbody v-if="products">
             <tr v-for="product in products" :key="product" :product="product">
-              <th class="table__content" data-heading="ID">{{ product.product_id }}</th>
-              <th class="table__content" data-heading="Product Name">{{ product.title }}</th>
+              <th class="table__content" data-heading="ID">{{ product.id }}</th>
+              <th class="table__content" data-heading="Product Name">{{ product.brand }}</th>
               <th class="table__content" data-heading="Product Image">
-                <img class="img-fluid" :src="product.image" alt="product" />
+                <img class="img-fluid" :src="product.img" alt="product" />
               </th>
               <th class="table__content" data-heading="Description">{{ product.description }}</th>
               <th class="table__content" data-heading="Category">{{ product.category }}</th>
               <th class="table__content" data-heading="Price">{{ product.price }}</th>
-              <th class="table__content" data-heading="Created BY">{{ product.created_by }}</th>
+              <!-- <th class="table__content" data-heading="Created BY">{{ product.created_by }}</th> -->
               <th class="table__content" data-heading="ADD">
                 <button
-                  data-bs-toggle="modal" :data-bs-target="`#editProduct`+product.product_id"
+                  data-bs-toggle="modal" :data-bs-target="`#editProduct`+product.id"
                   class="btn"
                 >
                   Edit
@@ -83,7 +83,7 @@
                 <br>
                 <br>
                 <button
-                  data-bs-toggle="modal" :data-bs-target="`#deleteProduct`+product.product_id"
+                  data-bs-toggle="modal" :data-bs-target="`#deleteProduct`+product.id"
                   class="btn"
                 >
                   Delete
@@ -113,7 +113,7 @@ export default {
     components: { EditProduct, DeleteProduct, Add, CartModal },
   mounted() {
     this.$store.dispatch("getProducts");
-    this.$store.dispatch("getUsers");
+    // this.$store.dispatch("getUsers");
   },
   computed: {
     products() {

@@ -4,11 +4,11 @@
       <router-link to="/products"><button class="btn btn-new">Back</button></router-link>
     <div class="product-card" v-if="product">
 		<div class="product-tumb">
-			<img class="img-fluid" :src="product[0].image" alt="product">
+			<img class="img-fluid" :src="product[0].img" alt="product">
 		</div>
 		<div class="product-details">
 			<span class="product-catagory">{{product[0].category}}</span>
-			<h4><a href="">{{product[0].title}}</a></h4>
+			<h4><a href="">{{product[0].brand}}</a></h4>
 			<p>{{product[0].description}}</p>
 			<div class="product-bottom-details">
                 <div class="row">
@@ -52,14 +52,14 @@ export default {
     methods:{
       addCart(){
         let product = {
-          title: this.product[0].title,
+          brand: this.product[0].brand,
           category: this.product[0].category,
           description: this.product[0].description,
-          image: this.product[0].image,
+          img: this.product[0].img,
           price: this.product[0].price,
-          created_by: this.product[0].created_by
+          // created_by: this.product[0].created_by
         }
-        this.$store.dispatch('addCart', product, this.user.user_id)
+        this.$store.dispatch('addCart', product, this.user.id)
       }
     }
 }

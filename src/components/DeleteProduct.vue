@@ -1,9 +1,9 @@
 <template>
-    <div class="modal fade" style="color:black !important" :id="`deleteProduct`+product.product_id" tabindex="-1" :aria-labelledby="product.product_id+`DeleteLabel`" aria-hidden="true">
+    <div class="modal fade" style="color:black !important" :id="`deleteProduct`+product.id" tabindex="-1" :aria-labelledby="product.id+`DeleteLabel`" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" :id="`deleteProductLabel`+product.product_id">Delete Product</h5>
+                    <h5 class="modal-title" :id="`deleteProductLabel`+product.id">Delete Product</h5>
                     <button type="button" :id="`deleteProductClose`+product.product_id" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -20,8 +20,8 @@ export default {
     props:['product'],
     methods:{
         deleteProduct(){
-            this.$store.dispatch('deleteProduct',this.product.product_id);
-            document.getElementById(`deleteProductClose`+this.product.product_id).click();
+            this.$store.dispatch('deleteProduct',this.product.id);
+            document.getElementById(`deleteProductClose`+this.product.id).click();
         }
     }
 }

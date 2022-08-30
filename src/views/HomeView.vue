@@ -149,7 +149,4 @@ export default {
   opacity: 1;
 }
 
-/* #hoverInfo{
-  color: rgb(0, 162, 255);
-} */
 </style>
